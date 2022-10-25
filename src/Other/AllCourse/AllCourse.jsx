@@ -12,16 +12,20 @@ const AllCourse = () => {
 			     <p className=" text-center text-black">At a assumenda quas cum earum ut <br /> itaque commodi saepe rem aspernatur quam natus quis nihil quod, hic explicabo doloribus magnam neque, exercitationem eius sunt!</p>
 		    </div>
              <div className=' container grid xl:grid-cols-4 md:grid-cols-4 gap-2 mx-6 sm:grid-cols-1'>
-            <div class="...">
+            <div className="...">
+                <div className='container space-y-2 sm:p-10'>
+
                 {
                     allCourse.map(course=> <SideCourseName key={course.id} course={course}></SideCourseName>)
                 }
+                </div>
+               
 
             
             </div>
 
             
-            <div class="col-span-3 ...">
+            <div className="col-span-3 ...">
 
             <div className="container p-4 mx-auto space-y-16 sm:p-10">
        
