@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Courses = () => {
     return (
@@ -13,7 +14,9 @@ const Courses = () => {
 
 	<div className="container grid grid-rows-1 gap-6 mx-auto sm:grid-rows-1 xl:grid-rows-1">
 
-		<div className="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">
+        {/*  */}
+
+		<Link className="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-900 text-gray-100">
 			<div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:dark:bg-violet-400">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="h-9 w-9 dark:dark:text-gray-800">
 					<polygon points="160 96.039 160 128.039 464 128.039 464 191.384 428.5 304.039 149.932 304.039 109.932 16 16 16 16 48 82.068 48 122.068 336.039 451.968 336.039 496 196.306 496 96.039 160 96.039"></polygon>
@@ -25,7 +28,7 @@ const Courses = () => {
 				<p className="text-3xl font-semibold leading-none">200</p>
 				<p className="capitalize">Orders</p>
 			</div>
-		</div>
+		</Link>
 
             {/*  */}
 
