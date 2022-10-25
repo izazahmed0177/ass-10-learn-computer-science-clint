@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -6,8 +7,8 @@ const Header = () => {
         <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div class="relative flex items-center justify-between">
           <div class="flex items-center">
-            <a
-              href="/"
+            <Link
+             to='/'
               aria-label="Company"
               title="Company"
               class="inline-flex items-center mr-8"
@@ -30,48 +31,28 @@ const Header = () => {
               <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                 Learn Computer Science
               </span>
-            </a>
+            </Link>
             <ul class="flex items-center hidden space-x-8 lg:flex">
-              <li>
-                <a
-                  href="/"
-                  aria-label="Our product"
-                  title="Our product"
-                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
+              <NavLink to='/'>
+               
                   Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  aria-label="Our product"
-                  title="Our product"
-                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
+               
+              </NavLink>
+              <NavLink to='/courses'>
+               
                   Courses
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  aria-label="Product pricing"
-                  title="Product pricing"
-                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
+               
+              </NavLink>
+              <NavLink to='/faq'>
+               
                   FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  aria-label="About us"
-                  title="About us"
-                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
+                
+              </NavLink>
+              <NavLink to='/blogs'>
+                
                   Blog
-                </a>
-              </li>
+               
+              </NavLink>
             </ul>
           </div>
           <ul class="flex items-center hidden space-x-8 lg:flex">
@@ -133,8 +114,8 @@ const Header = () => {
                 <div class="p-5 bg-white border rounded shadow-sm">
                   <div class="flex items-center justify-between mb-4">
                     <div>
-                      <a
-                        href="/"
+                      <Link
+                        to='/'
                         aria-label="Company"
                         title="Company"
                         class="inline-flex items-center"
@@ -157,7 +138,7 @@ const Header = () => {
                         <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         Learn Computer Science
                         </span>
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <button
@@ -177,46 +158,37 @@ const Header = () => {
                   </div>
                   <nav>
                     <ul class="space-y-4">
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Home
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Courses
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          FAQ
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="About us"
-                          title="About us"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Blog
-                        </a>
-                      </li>
+                        <li>
+                        <NavLink to='/'>
+                       
+                      
+                       Home
+                     
+                   </NavLink>
+                        </li>
+                        <li>
+                        <NavLink to='/courses'>
+                        
+                        Courses
+                    
+                    </NavLink>
+                        </li>
+                        <li>
+                        <NavLink to='/faq'>
+                        
+                        
+                        FAQ
+                     
+                    </NavLink>
+                        </li>
+                        <li>
+                        <NavLink to='/blogs'>
+                        
+                        Blog
+                     
+                    </NavLink>
+                        </li>
+                      
                       <li>
                         <a
                           href="/"
