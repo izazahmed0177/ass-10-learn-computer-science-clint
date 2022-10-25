@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Courses = () => {
+const Courses = ({course}) => {
+    const {id,name}=course;
     return (
         <div className=' container grid xl:grid-cols-4 md:grid-cols-4 gap-4 mx-6 sm:grid-cols-1'>
             <div class="...">
@@ -26,7 +27,7 @@ const Courses = () => {
 			</div>
 			<div className="flex flex-col justify-center align-middle">
 				<p className="text-3xl font-semibold leading-none">200</p>
-				<p className="capitalize">Orders</p>
+				<p className="capitalize">{name}</p>
 			</div>
 		</Link>
 
