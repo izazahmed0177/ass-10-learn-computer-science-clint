@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetailPage = () => {
     const course=useLoaderData();
@@ -40,7 +40,7 @@ const CourseDetailPage = () => {
         </div>
         <div className='flex justify-center'>
 
-        <button type="button" className="inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white">Get premium access</button>
+        <Link to={`/checkout/${course_id}`} type="button" className="inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white">Get premium access</Link>
         </div>
     </div>
     
