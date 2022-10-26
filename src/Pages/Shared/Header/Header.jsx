@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { FaBeer, FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Header = () => {
+  const {user,logOut}=useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const handleLogOut=()=>{
+      logOut()
+      .then(()=>{})
+      .catch(error=>console.error(error))
+    }
+
+
+
+
+
     return (
         <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
@@ -60,27 +73,54 @@ const Header = () => {
             <li>
               <a
                 href="/"
-                aria-label="Sign in"
+                aria-label="light"
                 title="Sign in"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Light
               </a>
+
             </li>
+
             <li>
-              <Link
-                to='/login'
+              <span
+               
                 aria-label="Sign in"
                 title="Sign in"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
+
+                {
+                  user?.uid?
+                  <>
+                  <button>Log Out</button>
+                  </>
+                  :
+                  <>
+                   <Link to='/login'>
                 Sign in
-              </Link>
+                </Link>
+                  </>
+                }
+               
+               
+              </span>
             </li>
             <li>
             <button type="button" className="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                        <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" className="object-cover w-full h-full" alt="avatar"/>
+                        {/* <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full"> */}
+                        <div className=" overflow-hidden border-2 border-gray-400 rounded-full">
+
+                           {
+                            user?.photoURL ?
+                            <img title={user?.displayName} src={user?.photoURL}>
+
+                            </img>
+                            :
+                            <FaUser  title='Please Log in'></FaUser>
+                           }
+
+
                         </div>
 
                         <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
@@ -192,7 +232,7 @@ const Header = () => {
                       <li>
                         <a
                           href="/"
-                          aria-label="Sign in"
+                          aria-label="light"
                           title="Sign in"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
@@ -200,24 +240,54 @@ const Header = () => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="/"
+                        <span
+                          
                           aria-label="Sign in"
                           title="Sign in"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Sign in
-                        </a>
+                            {
+                  user?.uid?
+                  <>
+                  <button>Log Out</button>
+                  </>
+                  :
+                  <>
+                   <Link to='/login'>
+                Sign in
+                </Link>
+                  </>
+                }
+                        </span>
                       </li>
                       <li>
                         {/*  */}
                         {/*  */}
                       <button type="button" className="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                        <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" className="object-cover w-full h-full" alt="avatar"/>
+                        {/* <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full"> */}
+                        <div className=" overflow-hidden border-2 border-gray-400 rounded-full">
+
+
+                        {
+                            user?.photoURL ?
+                            <img title={user?.displayName} src={user?.photoURL}>
+
+                            </img>
+                            :
+                            <FaUser title='Please Log in'></FaUser>
+                           }
+
+
                         </div>
 
-                        <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
+                        <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">
+                          {
+                            user?.displayName ?
+                            <p title={user?.displayName}>{user?.displayName}</p>
+                            :
+                            <p title='Please Log in'>Please Log in</p>
+                          }
+                          </h3>
                     </button>
                       </li>
                     </ul>
