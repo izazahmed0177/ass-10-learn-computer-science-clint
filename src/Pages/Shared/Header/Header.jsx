@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FaBeer, FaUser } from 'react-icons/fa';
+import { FaBeer, FaTv, FaUser } from 'react-icons/fa';
+// import { IconName } from "react-icons/di";
+// import { IconName ,} from "react-icons/ai";
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Header = () => {
@@ -20,27 +22,15 @@ const Header = () => {
         <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
+          <img className='h-7' src={'computer22.png'} alt="" />
             <Link
              to='/'
               aria-label="Company"
-              title="Company"
+             
               className="inline-flex items-center mr-8"
             >
-              <svg
-                className="w-8 text-deep-purple-accent-400"
-                viewBox="0 0 24 24"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                stroke="currentColor"
-                fill="none"
-              >
-                <rect x="3" y="1" width="7" height="12" />
-                <rect x="3" y="17" width="7" height="6" />
-                <rect x="14" y="1" width="7" height="6" />
-                <rect x="14" y="11" width="7" height="12" />
-              </svg>
+              <FaTv className=''></FaTv>
+           
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                 Learn Computer Science
               </span>
@@ -123,7 +113,7 @@ const Header = () => {
 
                         </div>
 
-                        <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
+                        <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden"></h3>
                     </button>
             </li>
           </ul>
@@ -157,24 +147,12 @@ const Header = () => {
                       <Link
                         to='/'
                         aria-label="Company"
-                        title="Company"
+                       
                         className="inline-flex items-center"
                       >
-                        <svg
-                          className="w-8 text-deep-purple-accent-400"
-                          viewBox="0 0 24 24"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeMiterlimit="10"
-                          stroke="currentColor"
-                          fill="none"
-                        >
-                          <rect x="3" y="1" width="7" height="12" />
-                          <rect x="3" y="17" width="7" height="6" />
-                          <rect x="14" y="1" width="7" height="6" />
-                          <rect x="14" y="11" width="7" height="12" />
-                        </svg>
+                        
+                        <FaTv></FaTv>
+                       
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         Learn Computer Science
                         </span>
