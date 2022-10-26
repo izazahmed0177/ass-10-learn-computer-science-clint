@@ -113,7 +113,7 @@ const Header = () => {
 
                            {
                             user?.photoURL ?
-                            <img title={user?.displayName} src={user?.photoURL}>
+                            <img className='w-8 h-8' title={user?.displayName} src={user?.photoURL}>
 
                             </img>
                             :
@@ -233,7 +233,7 @@ const Header = () => {
                         <a
                           href="/"
                           aria-label="light"
-                          title="Sign in"
+                          title="light"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Light
@@ -270,7 +270,7 @@ const Header = () => {
 
                         {
                             user?.photoURL ?
-                            <img title={user?.displayName} src={user?.photoURL}>
+                            <img className='w-8 h-8' title={user?.displayName} src={user?.photoURL}>
 
                             </img>
                             :

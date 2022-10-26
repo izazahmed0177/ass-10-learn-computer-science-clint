@@ -1,12 +1,17 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Login = () => {
     const [error,setError]=useState('');
     const {singIn,setLoading}= useContext(AuthContext);
+    const navigate=useNavigate();
+    const location=useLocation();
+
+    const from=location.state?.form?.pathname || '/' ;
 
     const handeleSubmit=event=>{
         event.preventDefault();
@@ -20,10 +25,17 @@ const Login = () => {
             const user=result.user;
             console.log(user)
             form.reset();
-            // setError('')
+            setError('')
+
+            if (user.emailVerified) {
+                navigate(from,{replace:true})
+            } else {
+              toast.error('email is not valite')  
+            }
         })
         .catch(error=>{
             console.error(error)
+            setError(error.message)
         })
         .finally(()=>{
             setLoading(false)
@@ -40,7 +52,7 @@ const Login = () => {
 
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
 	<h1 className="text-2xl font-bold text-center">Login</h1>
-	<form onSubmit={handeleSubmit} novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+	<form onSubmit={handeleSubmit}  className="space-y-6 ng-untouched ng-pristine ng-valid">
 
 		<div className="space-y-1 text-sm">
 			<label className="block text-gray-400">User Email</label>
@@ -82,6 +94,9 @@ const Login = () => {
 	<p className="text-1xl text-center sm:px-6 text-gray-400">Don't have an account?
 		<Link to='/register' rel="noopener noreferrer" className=" dark:text-gray-100 hover:text-white hover:underline"> Sign up</Link>
 	</p>
+    <p>
+        {error}
+    </p>
 </div>
 
 </div>
