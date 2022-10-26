@@ -11,19 +11,23 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     const createUser = (email, password) => {
+        setLoading(true);
 
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const singIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     const updateUserProfile = (profile) => {
         return updateProfile(auth.currentUser, profile);
     }
     const logOut = () => {
+        setLoading(true)
         return signOut(auth);
     }
 
@@ -42,6 +46,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser === null || currentUser.emailVerified) {
                 setUser(currentUser);
             }
+            setLoading(false)
 
         });
         return () => {
@@ -56,6 +61,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        loading,
         createUser,
         singIn,
         updateUserProfile,

@@ -6,7 +6,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Login = () => {
     const [error,setError]=useState('');
-    const {singIn}= useContext(AuthContext);
+    const {singIn,setLoading}= useContext(AuthContext);
 
     const handeleSubmit=event=>{
         event.preventDefault();
@@ -24,6 +24,9 @@ const Login = () => {
         })
         .catch(error=>{
             console.error(error)
+        })
+        .finally(()=>{
+            setLoading(false)
         })
 
     }
