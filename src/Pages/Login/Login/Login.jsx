@@ -19,6 +19,8 @@ const Login = () => {
         .then(result=>{
             const user=result.user;
             console.log(user)
+            form.reset();
+            // setError('')
         })
         .catch(error=>{
             console.error(error)
@@ -38,12 +40,12 @@ const Login = () => {
 	<form onSubmit={handeleSubmit} novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
 
 		<div className="space-y-1 text-sm">
-			<label for="userEmail" className="block text-gray-400">User Email</label>
+			<label className="block text-gray-400">User Email</label>
 			<input type="Email" name="email"  placeholder="User Email" required className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
 		</div>
 
 		<div className="space-y-1 text-sm">
-			<label for="password" className="block text-gray-400">Password</label>
+			<label  className="block text-gray-400">Password</label>
 			<input type="password" name="password"  placeholder="Password" required className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
             
 			<div className="flex justify-end text-xs text-gray-400">

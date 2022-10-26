@@ -6,7 +6,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Register = () => {
     // const [error,setError]=useState('');
     // const { createUser}=useContext(AuthContext);
-    const {createUser}= useContext(AuthContext);
+    const {createUser, updateUserProfile}= useContext(AuthContext);
    
     const handeleSubmit=event=>{
         event.preventDefault();
@@ -22,11 +22,27 @@ const Register = () => {
         .then(result=>{
             const user=result.user;
             console.log(user);
+            form.reset();
+            handleUpdateUserProfile(name,photoURL);
         })
         .catch(error=>{
             console.error(error);
         });
     }
+
+    const handleUpdateUserProfile=(name,photoURL)=>{
+        const profile={
+            displayName:name,
+            photoURL:photoURL
+        }
+        updateUserProfile(profile)
+        .then(()=>{})
+        .catch(error=>console.error(error));
+    }
+
+
+
+
     return (
         <div className='bg-slate-800 flex justify-center p-9'>
 
