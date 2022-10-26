@@ -74,7 +74,7 @@ const Header = () => {
               <a
                 href="/"
                 aria-label="light"
-                title="Sign in"
+               
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Light
@@ -86,14 +86,14 @@ const Header = () => {
               <span
                
                 aria-label="Sign in"
-                title="Sign in"
+               
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
 
                 {
                   user?.uid?
                   <>
-                  <button>Log Out</button>
+                  <button onClick={handleLogOut}>Log Out</button>
                   </>
                   :
                   <>
@@ -233,7 +233,7 @@ const Header = () => {
                         <a
                           href="/"
                           aria-label="light"
-                          title="light"
+                         
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Light
@@ -243,13 +243,13 @@ const Header = () => {
                         <span
                           
                           aria-label="Sign in"
-                          title="Sign in"
+                         
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                             {
                   user?.uid?
                   <>
-                  <button>Log Out</button>
+                  <button onClick={handleLogOut}>Log Out</button>
                   </>
                   :
                   <>
