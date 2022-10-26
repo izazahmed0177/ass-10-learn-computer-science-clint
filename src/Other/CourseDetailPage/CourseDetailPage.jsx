@@ -8,13 +8,14 @@ const CourseDetailPage = () => {
         <div className='flex justify-center'>
 
 
-        <div className="max-w-3xl max-h-8xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <div className="max-w-3xl max-h-8xl overflow-hidden bg-white rounded-lg shadow-md bg-gray-800">
         <img className="object-cover w-full h-64" src={img} alt="Article"/>
     
         <div className="p-6">
             <div>
                 
-                <h1 className="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" tabindex="0" role="link">{name}</h1>
+                <h1 className="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-300 transform text-gray-800 hover:text-gray-600 hover:underline" tabindex="0" role="link">{name}</h1>
+
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat viverra. In pretium nec senectus erat. Et malesuada lobortis.</p>
             </div>
     
