@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
+
 
 const Register = () => {
-    const [error,setError]=useState('');
-
+    // const [error,setError]=useState('');
+    // const { createUser}=useContext(AuthContext);
+    const {createUser}= useContext(AuthContext);
+   
     const handeleSubmit=event=>{
         event.preventDefault();
         const form=event.target;
@@ -11,7 +16,16 @@ const Register = () => {
         const photoURL=form.photoURL.value
         const email=form.email.value;
         const password=form.password.value;
-        console.log(email,password,name,photoURL);
+        // console.log(email,password,name,photoURL);
+
+        createUser(email,password)
+        .then(result=>{
+            const user=result.user;
+            console.log(user);
+        })
+        .catch(error=>{
+            console.error(error);
+        });
     }
     return (
         <div className='bg-slate-800 flex justify-center p-9'>
