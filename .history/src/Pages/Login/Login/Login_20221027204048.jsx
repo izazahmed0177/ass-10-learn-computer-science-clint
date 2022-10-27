@@ -17,7 +17,7 @@ const Login = () => {
     const navigate=useNavigate();
     const location=useLocation();
 
-   
+    // const from=location.state?.form?.pathname || '/' ;
 	const toFrom=location.state?.from?.pathname || '/';
 
 	const handeleGoogleSignIn=()=>{

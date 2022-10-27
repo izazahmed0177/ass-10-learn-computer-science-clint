@@ -17,8 +17,8 @@ const Login = () => {
     const navigate=useNavigate();
     const location=useLocation();
 
-   
-	const toFrom=location.state?.from?.pathname || '/';
+    // const from=location.state?.form?.pathname || '/' ;
+	const toFrom=location.state?.from?.pathname || '/',
 
 	const handeleGoogleSignIn=()=>{
 		providerLogin(googleProvider)
@@ -26,7 +26,7 @@ const Login = () => {
 			const user=result.user;
 			// console.log(user)
 			if (user.emailVerified) {
-                navigate(toFrom,{replace:true})
+                navigate(from,{replace:true})
             } else {
               toast.error('Your email is not valid')  
             }
@@ -41,7 +41,7 @@ const Login = () => {
 			const user=result.user;
 			console.log(user)
 			if (user.providerData[0].providerId === 'github.com') {
-                navigate(toFrom,{replace:true})
+                navigate(from,{replace:true})
             } else {
               toast.error('Your email is not valid')  
             }
@@ -68,7 +68,7 @@ const Login = () => {
             setError('')
 
             if (user.emailVerified) {
-                navigate(toFrom,{replace:true})
+                navigate(from,{replace:true})
             } else {
               toast.error('Your email is not valid')  
             }
