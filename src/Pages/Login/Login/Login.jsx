@@ -27,7 +27,7 @@ const Login = () => {
 			if (user.emailVerified) {
                 navigate(from,{replace:true})
             } else {
-              toast.error('email is not valite')  
+              toast.error('Your email is not valid')  
             }
 
 		})
@@ -42,7 +42,7 @@ const Login = () => {
 			if (user.providerData[0].providerId === 'github.com') {
                 navigate(from,{replace:true})
             } else {
-              toast.error('email is not valite')  
+              toast.error('Your email is not valid')  
             }
 		})
 		.catch(error=>console.error(error))
@@ -69,7 +69,7 @@ const Login = () => {
             if (user.emailVerified) {
                 navigate(from,{replace:true})
             } else {
-              toast.error('email is not valite')  
+              toast.error('Your email is not valid')  
             }
         })
         .catch(error=>{

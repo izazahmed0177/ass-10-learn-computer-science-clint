@@ -29,7 +29,7 @@ const Header = () => {
              
               className="inline-flex items-center mr-8"
             >
-              <FaTv className=''></FaTv>
+              {/* <FaTv className=''></FaTv> */}
            
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                 Learn Computer Science
@@ -152,6 +152,7 @@ const Header = () => {
                 <div className="p-5 bg-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
+                  
                       <Link
                         to='/'
                         aria-label="Company"
@@ -159,7 +160,8 @@ const Header = () => {
                         className="inline-flex items-center"
                       >
                         
-                        <FaTv></FaTv>
+                        {/* <FaTv></FaTv> */}
+                        <img className='h-7' src={'computer22.png'} alt="" />
                        
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         Learn Computer Science
