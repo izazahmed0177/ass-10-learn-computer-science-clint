@@ -27,20 +27,20 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <AllCourse></AllCourse>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://learn-computer-science-server.vercel.app/courses')
 
             },
 
             {
                 path: '/course/:id',
                 element: <CourseDetailPage></CourseDetailPage>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://learn-computer-science-server.vercel.app/course/${params.id}`)
             },
             {
 
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
+                loader: ({ params }) => fetch(`https://learn-computer-science-server.vercel.app/checkout/${params.id}`)
             },
             {
                 path: '/faq',
