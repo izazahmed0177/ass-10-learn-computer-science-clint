@@ -8,8 +8,8 @@ const AllCourse = () => {
     return (
         <div>
             <div className="space-y-4 text-center mb-3">
-			    <h3 className="text-2xl font-bold leading-none sm:text-5xl">Meet our team</h3>
-			     <p className=" text-center text-black">At a assumenda quas cum earum ut <br /> itaque commodi saepe rem aspernatur quam natus quis nihil quod, hic explicabo doloribus magnam neque, exercitationem eius sunt!</p>
+			    <h3 className="text-2xl font-bold leading-none sm:text-5xl">Check out our courses</h3>
+			     <p className=" text-center text-black">By completing the tricks here,<br /> you can make yourself proficient in computer science and keep yourself ahead in information technology in today's world.</p>
 		    </div>
              <div className=' container grid xl:grid-cols-4 md:grid-cols-4 gap-2 mx-6 sm:grid-cols-1'>
             <div className="...">

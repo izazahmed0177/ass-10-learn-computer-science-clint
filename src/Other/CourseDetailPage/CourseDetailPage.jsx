@@ -4,6 +4,7 @@ import ReactToPrint from 'react-to-print';
 import ReactToPdf from "react-to-pdf";
 import { Link, useLoaderData } from 'react-router-dom';
 import { useRef } from 'react';
+import { FaFilePdf, FaPrint, IconName } from "react-icons/fa";
 
 const CourseDetailPage = () => {
     const course=useLoaderData();
@@ -25,13 +26,14 @@ const CourseDetailPage = () => {
         <div className='mt-6'>
 
 			<div className='m-5'>
-				<ReactToPrint  trigger={() => <button className='inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white'>Print</button>} content={() => printRef.current}
+				<ReactToPrint  trigger={() => <button className='inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white hover:bg-gray-700'><div className='flex gap-1 justify-center text-center align-middle'><p>Print</p><FaPrint className='mt-1'></FaPrint></div> </button>} content={() => printRef.current}
 				></ReactToPrint>
 
 
 				<ReactToPdf targetRef={pdfRef} filename="div-blue.pdf" options={options}>
 				{({toPdf}) => (
-            <button onClick={toPdf}>Generate pdf</button>
+            // <button onClick={toPdf}>Generate pdf</button>
+			<button onClick={toPdf} className='inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white hover:bg-gray-700'><div className='flex gap-1 justify-center text-center align-middle'><p>Generate pdf</p><FaFilePdf className='mt-1'></FaFilePdf></div> </button>
         )}
 
 				</ReactToPdf>
@@ -73,7 +75,7 @@ const CourseDetailPage = () => {
                        
                         <p>Teacher: {teacher}</p>
                     </div>
-                    {/* <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">21 SEP 2015</span> */}
+                  
                 </div>
 
             </div>
@@ -83,7 +85,7 @@ const CourseDetailPage = () => {
         </div>
         <div className='flex justify-center'>
 
-        <Link to={`/checkout/${course_id}`} type="button" className="inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white">Get premium access</Link>
+        <Link to={`/checkout/${course_id}`} type="button" className="inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white hover:bg-gray-700">Get premium access</Link>
         </div>
 		{/*  */}
 		</div>
