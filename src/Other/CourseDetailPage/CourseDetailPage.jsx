@@ -1,17 +1,60 @@
 import React from 'react';
+import ReactToPrint from 'react-to-print';
+// import Pdf from "react-to-pdf";
+import ReactToPdf from "react-to-pdf";
 import { Link, useLoaderData } from 'react-router-dom';
+import { useRef } from 'react';
 
 const CourseDetailPage = () => {
     const course=useLoaderData();
-    const{_id,course_id,name,img,details,price,teacher}=course
+
+	const printRef=useRef()
+	const pdfRef=useRef()
+	const options = {
+		orientation: 'vertical',
+		// unit: 'in',
+		// format: [4,2]
+	};
+
+
+
+    const{_id,course_id,name,img,details,price,teacher}=course;
+
+
     return (
         <div className='mt-6'>
 
+			<div className='m-5'>
+				<ReactToPrint  trigger={() => <button className='inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white'>Print</button>} content={() => printRef.current}
+				></ReactToPrint>
+
+
+				<ReactToPdf targetRef={pdfRef} filename="div-blue.pdf" options={options}>
+				{({toPdf}) => (
+            <button onClick={toPdf}>Generate pdf</button>
+        )}
+
+				</ReactToPdf>
+				
+			</div>
+
+			<div ref={printRef} className='print-detail'>
+
+
+			
+
         
-        <div className='flex justify-center'>
+        <div   className='flex justify-center'>
 
 
         <div className="max-w-3xl max-h-8xl overflow-hidden bg-violet-400 rounded-lg shadow-md bg-gray-800">
+
+			<div ref={pdfRef}>
+
+			
+
+
+
         <img className="object-cover w-full h-64" src={img} alt="Article"/>
     
         <div className="p-6">
@@ -42,6 +85,9 @@ const CourseDetailPage = () => {
 
         <Link to={`/checkout/${course_id}`} type="button" className="inline-block px-5 py-3 m-4 font-semibold tracking-wider text-center rounded bg-gray-900 text-white">Get premium access</Link>
         </div>
+		{/*  */}
+		</div>
+		{/*  */}
     </div>
     
     </div>
@@ -49,16 +95,16 @@ const CourseDetailPage = () => {
     {/*  */}
     {/*  */}
 
-    <div>
-    {/* <section className="py-20 bg-gray-800 text-gray-100"> */}
+    <div className='flex justify-center'>
+   
     <section className="py-20 bg-white">
 	<div className="container px-4 mx-auto">
 		<div className="max-w-2xl mx-auto mb-16 text-center">
-			{/* <span className="font-bold tracking-wider uppercase text-violet-400">Pricing</span> */}
-			{/* <h2 className="text-4xl font-bold lg:text-5xl">Choose your best plan</h2> */}
+			
 		</div>
-		<div className="flex flex-wrap items-stretch -mx-4">
-			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
+		<div className="flex flex-wrap items-stretch -mx-4 ">
+
+			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0 justify-center">
 				<div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-gray-900">
 					<div className="space-y-2">
 						<h4 className="text-2xl font-bold text-white">Beginner</h4>
@@ -85,12 +131,12 @@ const CourseDetailPage = () => {
 							<span>Tristique enim nec</span>
 						</li>
 					</ul>
-					{/* <button type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded bg-violet-400 text-gray-900">Get Started</button> */}
+					
 				</div>
 			</div>
 
 
-			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
+			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0 justify-center">
 				<div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-violet-400 text-gray-900">
 					<div className="space-y-2">
 						<h4 className="text-2xl font-bold">Pro</h4>
@@ -125,10 +171,10 @@ const CourseDetailPage = () => {
 							<span>Aenean et lectus blandit</span>
 						</li>
 					</ul>
-					{/* <a rel="noopener noreferrer" href="#" className="inline-block w-full px-5 py-3 font-bold tracking-wider text-center rounded bg-gray-800 text-violet-400">Get Started</a> */}
+					
 				</div>
 			</div>
-			<div className="w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
+			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0 justify-center">
 				<div className="p-6 space-y-6 rounded shadow sm:p-8 bg-gray-900">
 					<div className="space-y-2">
 						<h4 className="text-2xl font-bold text-white">Team</h4>
@@ -169,7 +215,7 @@ const CourseDetailPage = () => {
 							<span>Vivamus ut lectus ex</span>
 						</li>
 					</ul>
-					{/* <a rel="noopener noreferrer" href="#" className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded bg-violet-400 text-gray-900">Get Started</a> */}
+				
 				</div>
 			</div>
 		</div>
@@ -179,6 +225,7 @@ const CourseDetailPage = () => {
 
 {/*  */}
 
+</div>
     </div>
     );
 };
