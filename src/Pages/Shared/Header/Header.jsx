@@ -4,6 +4,7 @@ import { FaBeer, FaTv, FaUser } from 'react-icons/fa';
 // import { IconName } from "react-icons/di";
 // import { IconName ,} from "react-icons/ai";
 import { AuthContext } from '../../../contexts/AuthProvider';
+import './Header'
 
 const Header = () => {
   const {user,logOut}=useContext(AuthContext);
@@ -42,22 +43,23 @@ const Header = () => {
               </span>
             </Link>
             <ul className="flex items-center hidden space-x-8 lg:flex">
-              <NavLink to='/'>
+              <NavLink to='/'  className='bg-blue-300 p-2 px-3
+               rounded hover:bg-blue-500'>
                
                   Home
                
               </NavLink>
-              <NavLink to='/courses'>
+              <NavLink to='/courses'  className='bg-blue-300 p-2 rounded hover:bg-blue-500'>
                
                   Courses
                
               </NavLink>
-              <NavLink to='/faq'>
+              <NavLink to='/faq'  className='bg-blue-300 p-2 px-6 rounded hover:bg-blue-500'>
                
                   FAQ
                 
               </NavLink>
-              <NavLink to='/blogs'>
+              <NavLink to='/blogs'  className='bg-blue-300 p-2 px-5 rounded hover:bg-blue-500'>
                 
                   Blog
                
@@ -97,11 +99,11 @@ const Header = () => {
                 {
                   user?.uid?
                   <>
-                  <button onClick={handleLogOut}>Log Out</button>
+                  <button  className='bg-blue-300 p-2 rounded hover:bg-blue-500' onClick={handleLogOut}>Log Out</button>
                   </>
                   :
                   <>
-                   <Link to='/login'>
+                   <Link to='/login'  className='bg-blue-300 p-2 rounded hover:bg-blue-500'>
                 Sign in
                 </Link>
                   </>
@@ -193,7 +195,7 @@ const Header = () => {
                   <nav>
                     <ul className="space-y-4">
                         <li>
-                        <NavLink to='/'>
+                        <NavLink to='/'  className='bg-blue-300 p-2 px-5 rounded hover:bg-blue-500'>
                        
                       
                        Home
@@ -201,14 +203,14 @@ const Header = () => {
                    </NavLink>
                         </li>
                         <li>
-                        <NavLink to='/courses'>
+                        <NavLink to='/courses'  className='bg-blue-300 p-2 px-3 rounded hover:bg-blue-500'>
                         
                         Courses
                     
                     </NavLink>
                         </li>
                         <li>
-                        <NavLink to='/faq'>
+                        <NavLink to='/faq'  className='bg-blue-300 p-2 px-6 rounded hover:bg-blue-500'>
                         
                         
                         FAQ
@@ -216,7 +218,7 @@ const Header = () => {
                     </NavLink>
                         </li>
                         <li>
-                        <NavLink to='/blogs'>
+                        <NavLink to='/blogs'  className='bg-blue-300 p-2 px-6 rounded hover:bg-blue-500'>
                         
                         Blog
                      
@@ -250,11 +252,11 @@ const Header = () => {
                             {
                   user?.uid?
                   <>
-                  <button onClick={handleLogOut}>Log Out</button>
+                  <button onClick={handleLogOut}  className='bg-blue-300 p-2 rounded hover:bg-blue-500'>Log Out</button>
                   </>
                   :
                   <>
-                   <Link to='/login'>
+                   <Link to='/login'  className='bg-blue-300 p-2 rounded hover:bg-blue-500'>
                 Sign in
                 </Link>
                   </>

@@ -13,7 +13,7 @@ const Courses = ({course}) => {
 			<p className="text-gray-100">Teacher: {teacher}</p>
 			<p className="text-gray-100">Price: $ {price}</p>
 		</div>
-		<Link to={`/course/${id}`} type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900 hover:bg-violet-600">Read more</Link>
+		<Link to={`/course/${id}`} type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900 hover:bg-violet-600">Details</Link>
 	</div>
 </div>
 

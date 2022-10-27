@@ -13,6 +13,8 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const [theme, setTheme] = useState('dark')
+
 
     // const googleProvider = new GoogleAuthProvider();
 
@@ -44,11 +46,6 @@ const AuthProvider = ({ children }) => {
         return sendEmailVerification(auth.currentUser);
     }
 
-
-
-
-
-
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('insid', currentUser);
@@ -71,13 +68,15 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        theme,
         setLoading,
         createUser,
         singIn,
         updateUserProfile,
         logOut,
         providerLogin,
-        verifyEmail
+        verifyEmail,
+        setTheme
 
     };
     return (
